@@ -1,0 +1,3 @@
+# The symlinks in the fixtures directory are just test cases that simulate
+# files in /proc.
+golang-procfs source: source-contains-unsafe-symlink fixtures/26231/exe

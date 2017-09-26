@@ -1,0 +1,21 @@
+Source: golang-procfs
+Section: devel
+Priority: extra
+Maintainer: Debian Go Packaging Team <pkg-go-maintainers@lists.alioth.debian.org>
+Uploaders: Martín Ferrari <tincho@debian.org>
+Build-Depends: debhelper (>= 9.0.0),
+               dh-golang (>= 1.17),
+               golang-any,
+Standards-Version: 4.0.0
+Vcs-Git: https://anonscm.debian.org/git/pkg-go/packages/golang-procfs.git
+Vcs-Browser: https://anonscm.debian.org/cgit/pkg-go/packages/golang-procfs.git
+Homepage: https://github.com/prometheus/procfs.git
+XS-Go-Import-Path: github.com/prometheus/procfs
+Testsuite: autopkgtest-pkg-go
+
+Package: golang-procfs-dev
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Golang library to retrieve metrics from the proc pseudo-filesystem
+ Procfs provides functions to retrieve system, kernel and process metrics from
+ the proc pseudo-filesystem.

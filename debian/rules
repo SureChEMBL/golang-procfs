@@ -1,0 +1,17 @@
+#!/usr/bin/make -f
+
+#export DH_VERBOSE = 1
+
+%:
+	dh $@ --buildsystem=golang --with=golang --builddir=_build
+
+override_dh_auto_configure:
+	dh_auto_configure
+	# Include test fixtures; need to use cp for special files.
+	cp -av fixtures _build/src/github.com/prometheus/procfs
+	./ttar -C _build/src/github.com/prometheus/procfs/sysfs -x \
+            -f sysfs/fixtures.ttar
+
+override_dh_link:
+	# Do nothing, the symlinks in the fixtures directory are just test
+	# cases that simulate files in /proc.
